@@ -4,7 +4,10 @@
 \usepackage{amsfonts}
 \usepackage{amssymb}
 
-\usepackage{graphicx}	%used for images
+\usepackage[margin=0.5in]{geometry}		%used for margins
+\usepackage{graphicx}					%used for images
+\usepackage{booktabs}					%used for nicer tables
+\pagenumbering{gobble}					%suppress page numbers
 
 \title{Functional Testing - Decision Tables}
 \author{
@@ -17,8 +20,30 @@
 \begin{document}
 \maketitle
 \newpage
-\section{Referral Program Workflow Diagram}
+\section{Workflow Diagram}
 \begin{figure}[h]
-	\centerline{\includegraphics[width=18cm]{workflow.png}}
+	\centerline{\includegraphics[width=9.5cm]{workflow.png}}
 \end{figure}
+
+\newpage
+\section{Decision Table (After Column Reduction)}
+\begin{table}[h]
+\centerline{
+\begin{tabular}{@{}lllllll@{}}
+\toprule
+                                                                     &                 & \multicolumn{5}{c}{\textbf{Rules or Combinations}}             \\ \cmidrule(l){3-7} 
+\textbf{Conditions}                                                  & \textbf{Values} & \textbf{1} & \textbf{2} & \textbf{3} & \textbf{4} & \textbf{5} \\ \midrule
+User is already referred                                             & Y, N            & Y          & N          & N          & N          & N          \\
+Referrer has earned at least \$50                                    & Y, N            & —          & Y          & N          & N          & N          \\
+Referred user places an order within 10 days                         & Y, N            & —          & —          & Y          & Y          & N          \\
+Referrer has referred 5+ users and all place an order within 10 days & Y, N            & —          & —          & N          & Y          & —          \\
+\textbf{Effects}                                                     &                 &            &            &            &            &            \\
+Award referrer nothing                                               &                 & 1          & 1          &            &            &            \\
+Award referrer \$5                                                   &                 &            &            & 1          & 1          & 1          \\
+Award referrer \$3                                                   &                 &            &            & 2          & 2          &            \\
+Award referrer \$10                                                  &                 &            &            &            & 3          &            \\ \bottomrule
+\end{tabular}
+}
+\end{table}
+
 \end{document}
