@@ -26,26 +26,89 @@
 \end{figure}
 
 \newpage
-\section{Decision Table (After Column Reduction)}
+\section{Decision Table (Before Column Reduction)}
 \begin{table}[h]
-\centerline{
-\begin{tabular}{@{}lllllll@{}}
+\begin{tabular}{@{}ll@{}}
 \toprule
-                                                                     &                 & \multicolumn{5}{c}{\textbf{Rules or Combinations}}             \\ \cmidrule(l){3-7} 
-\textbf{Conditions}                                                  & \textbf{Values} & \textbf{1} & \textbf{2} & \textbf{3} & \textbf{4} & \textbf{5} \\ \midrule
-$C_1$: User is already referred                                             & Y, N            & Y          & N          & N          & N          & N          \\
-$C_2$: Referrer has earned at least \$50                                    & Y, N            & —          & Y          & N          & N          & N          \\
-$C_3$: Referred user places an order within 10 days                         & Y, N            & —          & —          & N          & Y          & Y          \\
-$C_4$: Referrer has referred 4+ additional users and all place an order within 10 days & Y, N            & —          & —          & —          & N          & Y          \\
-\textbf{Effects}                                                     &                 &            &            &            &            &            \\
-$E_1$: Award referrer nothing                                               &                 & 1          & 1          &            &            &            \\
-$E_2$: Award referrer \$5                                                   &                 &            &            & 1          & 1          & 1          \\
-$E_3$: Award referrer \$3                                                   &                 &            &            &            & 2          & 2          \\
-$E_4$: Award referrer \$10                                                  &                 &            &            &            &            & 3          \\ \bottomrule
+Condition & Explanation                                                                     \\ \midrule
+$C_1$     & User is already referred                                                        \\ \midrule
+$C_2$     & Referrer has earned more than \$50                                              \\ \midrule
+$C_3$     & Referred user places an order within 10 days                                    \\ \midrule
+$C_4$     & Referrer has referred 4+ additional users and all place an order within 10 days \\ \bottomrule
 \end{tabular}
-}
 \end{table}
 
+\begin{table}[h]
+\begin{tabular}{@{}ll@{}}
+\toprule
+Effect & Explanation            \\ \midrule
+$E_1$  & Award referrer nothing \\ \midrule
+$E_2$  & Award referrer \$5     \\ \midrule
+$E_3$  & Award referrer \$3     \\ \midrule
+$E_4$  & Award referrer \$10    \\ \bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[h]
+\begin{tabular}{@{}llllllllllllllllll@{}}
+\toprule
+                 &        & \multicolumn{16}{c}{Rules or Combinations}                           \\ \cmidrule(l){3-18} 
+Conditions       & Values & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 & 13 & 14 & 15 & 16 \\ \midrule
+$C_1$            & Y, N   & Y & Y & Y & Y & Y & Y & Y & Y & N & N  & N  & N  & N  & N  & N  & N  \\
+$C_2$            & Y, N   & Y & Y & Y & Y & N & N & N & N & Y & Y  & Y  & Y  & N  & N  & N  & N  \\
+$C_3$            & Y, N   & Y & Y & N & N & Y & Y & N & N & Y & Y  & N  & N  & Y  & Y  & N  & N  \\
+$C_4$            & Y, N   & Y & N & Y & N & Y & N & Y & N & Y & N  & Y  & N  & Y  & N  & Y  & N  \\
+\textbf{Effects} &        &   &   &   &   &   &   &   &   &   &    &    &    &    &    &    &    \\
+$E_1$            &        & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1  & 1  & 1  &    &    &    &    \\
+$E_2$            &        &   &   &   &   &   &   &   &   &   &    &    &    & 1  & 1  & 1  & 1  \\
+$E_3$            &        &   &   &   &   &   &   &   &   &   &    &    &    & 2  & 2  &    &    \\
+$E_4$            &        &   &   &   &   &   &   &   &   &   &    &    &    & 3  &    &    &    \\ \bottomrule
+\end{tabular}
+\end{table}
+
+\newpage
+\section{Decision Table (After Column Reduction)}
+\begin{table}[h]
+\begin{tabular}{@{}ll@{}}
+\toprule
+Condition & Explanation                                                                     \\ \midrule
+$C_1$     & User is already referred                                                        \\ \midrule
+$C_2$     & Referrer has earned more than \$50                                              \\ \midrule
+$C_3$     & Referred user places an order within 10 days                                    \\ \midrule
+$C_4$     & Referrer has referred 4+ additional users and all place an order within 10 days \\ \bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[h]
+\begin{tabular}{@{}ll@{}}
+\toprule
+Effect & Explanation            \\ \midrule
+$E_1$  & Award referrer nothing \\ \midrule
+$E_2$  & Award referrer \$5     \\ \midrule
+$E_3$  & Award referrer \$3     \\ \midrule
+$E_4$  & Award referrer \$10    \\ \bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[h]
+\begin{tabular}{@{}lllllll@{}}
+\toprule
+                  &        & \multicolumn{5}{c}{Rules or Combinations} \\ \cmidrule(l){3-7} 
+Conditions        & Values & 1      & 2      & 3      & 4      & 5     \\ \midrule
+$C_1$             & Y, N   & Y      & N      & N      & N      & N     \\
+$C_2$             & Y, N   & —      & Y      & N      & N      & N     \\
+$C_3$             & Y, N   & —      & —      & Y      & Y      & N     \\
+$C_4$             & Y, N   & —      & —      & Y      & N      & —     \\
+\textbf{Effects}  &        &        &        &        &        &       \\
+$E_1$             &        & 1      & 1      &        &        &       \\
+$E_2$             &        &        &        & 1      & 1      & 1     \\
+$E_3$             &        &        &        & 2      & 2      &       \\
+$E_4$             &        &        &        & 3      &        &       \\ \midrule
+\textbf{Checksum} & 16     & 8      & 4      & 1      & 1      & 2     \\ \bottomrule
+\end{tabular}
+\end{table}
+
+\newpage
 \section{Scenarios}
 \subsection{Scenario 1}
 Suppose:
@@ -75,6 +138,6 @@ Suppose:
 	\item{Referred user does not place an order within 10 days}
 	\item{Referrer has not referred 4+ additional users}
 \end{itemize}
-Using the decision table, this scenario falls under rule 3. $C_1$, $C_2$, and $C_3$ are false, and the remaining condition does not have an impact on the final effect: $E_2$.
+Using the decision table, this scenario falls under rule 5. $C_1$, $C_2$, and $C_3$ are false, and the remaining condition does not have an impact on the final effect: $E_2$.
 
 \end{document}
